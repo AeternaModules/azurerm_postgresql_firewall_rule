@@ -1,3 +1,7 @@
+output "postgresql_firewall_rules_id" {
+  description = "Map of id values across all postgresql_firewall_rules, keyed the same as var.postgresql_firewall_rules"
+  value       = { for k, v in azurerm_postgresql_firewall_rule.postgresql_firewall_rules : k => v.id }
+}
 output "postgresql_firewall_rules_end_ip_address" {
   description = "Map of end_ip_address values across all postgresql_firewall_rules, keyed the same as var.postgresql_firewall_rules"
   value       = { for k, v in azurerm_postgresql_firewall_rule.postgresql_firewall_rules : k => v.end_ip_address }
